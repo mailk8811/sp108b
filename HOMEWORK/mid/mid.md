@@ -166,7 +166,6 @@ Xen 這套自由軟體在虛擬機器的模擬類型方面主要分為半虛擬�
 硬體支援 AMD 的 SVM 技術 (Secure Virtual Machine, AMD-SVM or, AMD-V)。  
 
 此外，上面提到的PAE指的是Intel的實體位址延伸技術 (Physical Addressing Extensions, PAE)，這項技術可讓原本僅支援到4GB實體記憶體的32位元硬體平台，可支援到最大64GB的記憶體，而且Xen幾乎可以在所有的P-II以上等級的硬體平台上面跑半虛擬化任務，如果不跑全虛擬化的話，其實效能確實是可以的。  
-
 近來由於虛擬機器軟體的流行，加上x86電腦效能與CPU運算核心單元的增加，兩大 x86 CPU 製造商 Intel/AMD 都發表了新的整合到CPU的虛擬技術，分別是Intel的Vanderpool虛擬技術以及AMD的Pacifica技術。這些技術有的也支援Xen，這讓 Xen 的效能增進不少。
 ---
   
