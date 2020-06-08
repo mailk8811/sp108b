@@ -161,6 +161,8 @@ dyngen是QEMU翻譯的關鍵。在包含微操作的對象文件上運行時執�
 
 ---
 ## XEN
+<pre>本章節節錄自
+http://linux.vbird.org/linux_enterprise/xen.php</pre>
 #### 基本介紹
 Xen 是以 GNU 的 GPL 授權發佈的自由軟體，目的在於提供效能佳、可支援不同作業系統的同時運作、 且讓同時運作的作業系統彼此互相獨立的系統環境。Xen 是基於 X86 硬體所開發出來的虛擬機器監督器 (Virtual Machine Hypervisor) 。  
 #### Xen 的虛擬類型與特色
