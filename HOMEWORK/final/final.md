@@ -375,4 +375,80 @@ The third num is :40
 ```
 而我們也可以使用 <code>arr.len()</code> 來取得陣列中元素的個數，再使用 <code>arry[]</code> 指定要顯示的內容，在指定的過程，我們要記得在這裡與大多語言相同，第一個元素的名稱是 <code>arry[0]</code>， <code>[ ]</code> 為 0 而非 1，要避免犯下這個錯誤。  
 
-#### 4. 切片(Slice)  
+#### 4. 切片(Slice) 
+切片是對一個陣列的引用片段，它可以安全與有效地訪問陣列的一部分。它的型別是<code>&[T]</code> 和 <code>&mut[T]</code>，以下為操作範例。
+ ```
+ fn main() {
+    let s = String::from("foodpanda");
+
+    let part1 = &s[0..4];
+    let part2 = &s[4..9];
+
+    println!("{}={}+{}", s, part1, part2);
+}
+```
+如果想要取一部分字符串，而不是整個字符串。 [start..end]語法是一個從開始但不包括結束的範圍。 因此，可以通過指定括號内的範圍來創建切片，例如 part1 的 <code>[0..5]</code> ，其中指定元素f的起始位置也就是對應到0，d要比切片中的最後一個位置多一個也就是5。  
+執行結果，就會選出你所設定的範圍。
+```
+% cargo run
+   Compiling slice v0.1.0 (/Users/malik8811/sp108b/slice)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.50s
+     Running `/Users/malik8811/sp108b/slice/target/debug/slice`
+foodpanda=food+panda
+```
+* 補充  
+<code>..x</code>  等於 <code>0..x</code>  
+<code>x..</code> 為 x 到數據結束   
+<code>..</code> 為0到結束  
+
+#### 5. 字符串  
+字符串在 Rust 中分為兩種類型： <code>&str</code> 和 <code>String</code>。
+而這兩者之間的區別，在於 <code>&str</code> 為一種固定長度無法更改長短的字符串 ，而 <code>String</code> 字符串則是一種可增長及可隨意更改其長短的字符串。
+以下為使用 <code>String</code> 操作的範例。
+```
+fn main()  
+{
+ let data="police";  
+ let s=data.to_string();  
+ print!("{} ",s);  
+ let str="officer".to_string();  
+ print!("{}",str);
+}
+```
+其中 <code>to_string()</code>方法有兩種，我講兩種方式都呈現在這一個程式裡。
+```
+% cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `/Users/malik8811/sp108b/slice/target/debug/string`
+police officer
+```
+<code>String</code> 的創建還有第二種方法，就是使用 <code>String::from</code> 函數，操作如下。  
+```
+fn main()  
+{  
+    let str = String::from("police officer");  
+    print!("{}",str);  
+}
+```
+執行結果就會如同更改前的一樣。  
+* 更新字符串  
+我們可以透過使用 <code>push_str</code> 函數來增加 String 大小。  
+以下為範例操作：
+```
+fn main()  
+{  
+  let mut s=String::from("My name is");  
+  s.push_str(" Maliik");  
+  print!("{}",s);  
+}
+```
+執行結果就會將兩者合併在一起。
+```
+% cargo run
+   Compiling slice v0.1.0 (/Users/malik8811/sp108b/slice)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.26s
+     Running `/Users/malik8811/sp108b/slice/target/debug/slice`
+My name is Maliik
+```  
+
+以上為目前從 Rust 學習到的部分，預計下一個由迴圈開始學習！！！
