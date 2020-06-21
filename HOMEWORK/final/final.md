@@ -398,7 +398,7 @@ foodpanda=food+panda
 ```
 * 補充  
 <code>..x</code>  等於 <code>0..x</code>  
-<code>x..</code> 為 x 到數據結束   
+<code>x..</code> 為 x 到數據結束   
 <code>..</code> 為0到結束  
 
 #### 5. 字符串  
