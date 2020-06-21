@@ -56,7 +56,7 @@ fn main() {
 
 在「hello_world」程式中，關鍵字 <code>fn</code> 是函式(function)的縮寫，而程式中的函式沒有參數也沒有回傳值，若函式有參數的話，參數會放在括號中，本練習因為我們不回傳值，所以可以省略回傳的型態。其中 main 是所有 Rust 程式的起始點，Rust 的函式內容會被包在大括號內。  
  
- 在「hello_world」程式中大括弧內負責這個程式的主要工作，透過 <code>println!()</code> 這行將括號內所輸入的文字印出來，在 Rust 中它叫做巨集（macro），對於為什麼 <code>println!</code> 後面為什麼要加一個！，由於目前還沒閱讀到後面的章節，若想先了解的讀者詳細內容請閱讀電子書原文[4.34 macro](https://askeing.github.io/rust-book/macros.html)，所以現在只需知道，當看到 ! 的時候，代表你正在呼叫一個巨集，而非一般的函式。
+ 在「hello_world」程式中大括弧內負責這個程式的主要工作，透過 <code>println!()</code> 這行將括號內所輸入的文字印出來，在 Rust 中它叫做巨集（macro），對於為什麼 <code>println!</code> 後面為什麼要加一個！，由於目前還沒閱讀到後面的章節，若想先了解的讀者詳細內容請閱讀電子書原文[4.34 macro](https://askeing.github.io/rust-book/macros.html)，所以現在只需知道，當看到 ! 的時候，代表你正在呼叫一個巨集，而非一般的函式。
 >請特別注意！[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)文章內容有提到！！！   
 縮排是四個空白，而不是 tabs。縮排是四個空白，而不是 tabs。
 
