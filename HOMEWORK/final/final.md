@@ -40,7 +40,7 @@ fn main() {
 % ./main
 Hello, world!
 ```  
-若以上執行成功，那麼恭喜你完成了你第一個 Rust 程式。  
+若以上執行成功，那麼你就完成了你第一個 Rust 程式。  
 
 ### （二）語句與表達式  
 執行成功後相信大家對於 Rust 的撰寫方式也相當好奇，讓我們來探索剛才執行的「hello_world」程式吧。  
@@ -52,13 +52,15 @@ fn main() {
 在分析「hello_world」程式之前，我們必須先瞭解 Rust 中的語法可分為語句和表達式，語句是指要執行的一些操作和產生副作用的表達式，而表達式主要用於計算求值。其中語句又可分為兩種：  
 >* 聲明（陳述）語句：用於聲明各種語言項，包含聲明變量、靜態變量、常量、結構體、函數等，以及通過extem 和 use 關鍵字印入包和模組等。（本練習並未出現，因為 Rust 會為每個crate都自動引入標準庫模組，除非使用＃[no_std]屬性指定不使用標準庫）  
 >* 表達式語句：特指以分號結尾的表達式，此類表達式求值結果將會被捨棄，並總是返回單元類型( )。   
+--取自[Rust 編成之道](https://www.tenlong.com.tw/products/9787121354854),張漢東  
 
 
 
 在「hello_world」程式中，關鍵字 <code>fn</code> 是函式(function)的縮寫，而程式中的函式沒有參數也沒有回傳值，若函式有參數的話，參數會放在括號中，本練習因為我們不回傳值，所以可以省略回傳的型態。其中 main 是所有 Rust 程式的起始點，Rust 的函式內容會被包在大括號內。  
  
  在「hello_world」程式中大括弧內負責這個程式的主要工作，透過 <code>println!()</code> 這行將括號內所輸入的文字印出來，在 Rust 中它叫做巨集（macro），對於為什麼 <code>println!</code> 後面為什麼要加一個！，由於目前還沒閱讀到後面的章節，若想先了解的讀者詳細內容請閱讀電子書原文[4.34 macro](https://askeing.github.io/rust-book/macros.html)，所以現在只需知道，當看到 ! 的時候，代表你正在呼叫一個巨集，而非一般的函式。
->請特別注意！縮排是四個空白，而不是 tabs。縮排是四個空白，而不是 tabs。
+>請特別注意！[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)文章內容有提到！！！   
+縮排是四個空白，而不是 tabs。縮排是四個空白，而不是 tabs。
 
 當Rust 編譯器在解析代碼的時候，如果碰到分號就會繼續往下執行; 如果碰到語句則執行語句; 如果碰到表達式，則會對表達是求值，如果分號後面什麼都沒有，就會補上單元值。  
 
@@ -78,6 +80,7 @@ Hello, world!
 ### （一）Cargo 基本介紹 
 >Cargo 是 Rust 的建置系統跟套件管理器，而且 Rustaceans 會使用 Cargo 去管理他們的 Rust 專案。 Cargo 管理三件事：建置你的程式碼、下載你的程式碼所依賴的函式庫（libraries）、以及建置這些函式庫。 我們把這些你的程式所依賴的函式庫叫做「dependencies」，因為你的程式碼依賴他們。  
 最簡單的 Rust 程式不會有任何 dependencies，所以現在你只會用到第一部份的功能。 當你撰寫更複雜的 Rust 程式後，你將會希望加入 dependencies，如果你從 Cargo 開始的話，那就會簡單很多。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)  
 
 
 ### （二）Hello, World! 轉換到 Cargo 
@@ -87,6 +90,7 @@ Hello, world!
 
 首先，我們要先完成一些前置作業，創建 src 目錄並將 <code>main.rs</code> 丟入，再將原本的執行檔移除，以上操作是為了配合Cargo，因為 Cargo 預期原始碼會放在 src 目錄內。  
 >最上層的專案目錄（在此為 hello_world）被保留來放置 README 檔、授權資訊、及其他與程式碼無關的東西，如此一來可以使專案保持整潔。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)  
 
 其操作如下：
 ```
@@ -98,7 +102,8 @@ Hello, world!
 在 hello_world 目錄下建立一個新的檔案<code>Cargo.toml</code>來設定檔案格式。  
 
 >* 確保 <code>Cargo.toml</code> 的 C 是大寫，否則 Cargo 會無法處理這樣的配置檔。  
->* TOML 跟 INI 很類似，但是有一些額外的好處，且被用來作為 Cargo 的配置格式。
+>* TOML 跟 INI 很類似，但是有一些額外的好處，且被用來作為 Cargo 的配置格式。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)
 
 建立完檔案後開啟並輸入以下資訊：  
 ```
@@ -109,7 +114,8 @@ version = "0.0.1"
 authors = [ "Your name <you@example.com>" ]
 ```
 >第一行，[package] 表示以下的陳述是用來配置一個套件（package）。 當我們要加入更多資訊到這個檔案內，我們會增加其他的小節（sections），但是現在，我們只有套件的配置。  
-其他三行設定了三項 Cargo 在編譯程式時所需知道的配置：程式的名字、版本、和作者。
+其他三行設定了三項 Cargo 在編譯程式時所需知道的配置：程式的名字、版本、和作者。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)
 
 完成後就可以準備來執行囉！
 
@@ -136,7 +142,8 @@ Hello, world!
 name = "hello_world"
 version = "0.0.1"
 ```
->Cargo 使用 Cargo.lock 去追蹤應用程式的 dependencies。這是 Hello World 專案的 Cargo.lock 檔。 因為此專案沒有任何 dependencies，所以檔案有點稀疏。 實際上，你不需要自己去碰這個檔案；你只要讓 Cargo 去處理就好了。
+>Cargo 使用 Cargo.lock 去追蹤應用程式的 dependencies。這是 Hello World 專案的 Cargo.lock 檔。 因為此專案沒有任何 dependencies，所以檔案有點稀疏。 實際上，你不需要自己去碰這個檔案；你只要讓 Cargo 去處理就好了。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)
 ### (三）兩者的不同
 ```
 兩者編譯指令:  
@@ -157,7 +164,8 @@ cargo build
      Running `target/debug/hello_world`
 Hello, world!
 ```
->在簡單的專案中，Cargo 無法比 rustc 帶來更多好處，但是它在未來會越來越有用。 在用到許多 crates 的複雜專案中，使用 Cargo 去協調建置會比較簡單。 你只需要執行 cargo build，然後一切都會正確的運行。
+>在簡單的專案中，Cargo 無法比 rustc 帶來更多好處，但是它在未來會越來越有用。 在用到許多 crates 的複雜專案中，使用 Cargo 去協調建置會比較簡單。 你只需要執行 cargo build，然後一切都會正確的運行。  
+--取自[Rust 程式設計语言 繁體中文版](https://askeing.github.io/rust-book/getting-started.html)
 
 ### （四）自動創建Hello, World!
 其實要在 Cargo 上創建一個新的檔案，不必要按照上面的步驟一步一步來，我們可以透過指令來完成所有操作，只需要輸入<code>cargo new</code>來創建，如下：
@@ -184,7 +192,8 @@ fn main() {
 以下就讓我簡短介紹：
 * 位置表達式：簡單來說就是表示內存位置的表達式，一般多用來進行寫的工作，這也是位置表達式可以被賦予值的原因。  
 * 值表達式： 它相當於數據值，只能進行讀取的動作。 
-> 從語意角度來說，位置表達式代表了持久性數據，值表達式代表了臨時數據。
+> 從語意角度來說，位置表達式代表了持久性數據，值表達式代表了臨時數據。  
+--取自[Rust 編成之道](https://www.tenlong.com.tw/products/9787121354854),張漢東  
 #### 2. 不可變綁定與可變綁定
 使用 <code>let</code> 指令宣告的位置表達式預設是不可變，為不可變綁定。  
 以下介紹不可變綁定與可變綁定的例子：  
@@ -264,7 +273,8 @@ The value of x is: 80
 * 與 <code>mut</code> 的區別  
 
 在這裡我們可以看到 <code>mut</code> 與 Shadowing 的區別，在於當我們再次使用 <code>let</code> 時，其實是再創建一個新的變數，因此可以改變值的類型，並且重複使用同一個名稱，而當我們使用指令 <code>mut</code> 時，我們雖然可以修改綁定的值，但我們卻無法改變這個變數的類型，證明如下：  
-> 例如，假设程序请求用户输入空格字符来说明希望在文本之间显示多少个空格，然而我们真正需要的是将输入存储成数字（多少个空格）：
+> 例如，假设程序请求用户输入空格字符来说明希望在文本之间显示多少个空格，然而我们真正需要的是将输入存储成数字（多少个空格）：  
+--取自[Rust 程序设计语言（第二版 & 2018 edition）简体中文版](https://kaisery.gitbooks.io/trpl-zh-cn/content/)
 ```
 fn main(){
 let spaces = "   ";
@@ -329,6 +339,7 @@ x is true
 #### 2. 字符(Char)  
 在 Rust 中，我們使用單引號來定義 <code>char</code>，它代表的是一個Unicode值，每個字符佔 4 個位元，以下為 <code>char</code> 類型的練習。  
 >注意 char 由单引号指定，不同于字符串使用双引号。  
+--取自[Rust 程序设计语言（第二版 & 2018 edition）简体中文版](https://kaisery.gitbooks.io/trpl-zh-cn/content/)  
 ```
 fn main() {
     let c = 'z';
