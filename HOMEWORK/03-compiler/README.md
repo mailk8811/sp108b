@@ -30,7 +30,7 @@ while (i<10) i = i + 1;
 ## 執行結果
 
 ``` 
-PS C:\ccc\sp108b\HomeWork\03-compiler> ./compiler test/IF.c
+PS C:\ccc\sp108b\HOMEWORK\03-compiler> ./compiler test/IF.c
 a = 3;
 b = 5;
 t = 0;
