@@ -460,5 +460,70 @@ fn main()
      Running `/Users/malik8811/sp108b/slice/target/debug/slice`
 My name is Maliik
 ```  
+## 四、流程控制表達式
+### （一）條件表達式
+ <code>if</code> 是一個使用分支概念去運行的條件表達式，它會根據選擇而有不同路徑的決策點。而表達式一定會有值，所以 <code>if</code> 表達式的分支必須返回同一個類型的值才可以， 以下是 <code>if</code> 條件式的小練習：  
 
-以上為目前從 Rust 學習到的部分，預計下一個由迴圈開始學習！！！
+```
+fn main(){
+    let n = 10;
+    let big_n = if (n < 20 && n > -10) {
+        5 * n
+    } else{
+        n / 2
+    };
+    assert_eq!(big_n, 50);
+    println!("big_n = {} = 50",big_n);
+}
+```
+我們設 <code>n = 10</code>，Rust會根據我們所設的條件做相對應的工作，由上方範例中的條件，我們可以得到 50 的結果，執行結果如下：  
+```
+big_n = 50 = 50
+```
+倘若我們依據上方的條件，並將 n 的值修改為 <code>n = 23</code>，依照直覺來說，根據條件，n 除以 2 會得到小數 11.5 才對，但是如果是小數，if 和 else 分支的求值結果類型會不一緻，揪竟這樣的條件會不會編譯出錯呢？讓我們來試試看。
+```
+fn main(){
+    let n = 23;
+    let big_n = if (n < 20 && n > -10) {
+        5 * n
+    } else{
+        n / 2
+    };
+    assert_eq!(big_n, 11);
+    println!("big_n = {} = 50",big_n)
+}
+```
+其實不必擔心，雖然我們沒有為它指定類型，但是在 Rust 當中，編譯器會自動默認為 i32 類型，因此編譯器會自動進行擷取，去除掉小數點後面的部分，最終得到的結如下：
+```
+big_n = 11 = 11
+```
+### （二）循環表達式  
+#### 1. loop  
+<code>loop</code> 關鍵字是 Rust 中最簡單的回圈形式。它會無限循環直到某些終結陳述達成。
+```
+fn main() {
+    let mut counter = 0 ;
+    let result = loop {
+        counter += 1;
+
+
+        if counter == 12{
+            break counter * 2;
+        }
+    };
+    println!("the result is {}",result);
+}
+```  
+執行結果如下：
+```
+% cargo run
+   Compiling test_loop v0.1.0 (/Users/malik8811/sp108b/HOMEWORK/final/projects/test_loop)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.20s
+     Running `target/debug/test_loop`
+the result is 24
+```
+我們設初始值為 0 ，並宣告 <code>result</code> 來存放循環返回的值，每一次循環 counter 就會加 1 ，當值為 12 時，就會使用 <code>break</code> 關鍵字返回值 <code>counter * 2</code>，因此我們會得到結果 24。  
+
+#### 2. for...in
+
+
