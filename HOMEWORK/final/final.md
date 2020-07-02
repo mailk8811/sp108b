@@ -524,7 +524,70 @@ the result is 24
 ```
 我們設初始值為 0 ，並宣告 <code>result</code> 來存放循環返回的值，每一次循環 counter 就會加 1 ，當值為 12 時，就會使用 <code>break</code> 關鍵字返回值 <code>counter * 2</code>，因此我們會得到結果 24。  
 
-#### 2. for...in
+#### 2. for...in  
+
+<code>for</code> 迴圈用來循環特定次數。 而在 Rust 語言中，它的寫法與在其他語言中並不相同，舉 C 語言為例：
+```
+for (x = 0; x < 10; x++) {
+    printf( "%d\n", x );
+}
+```
+在 Rust 中的形式卻是如下：  
+```
+for x in 0..10 {
+    println!("{}", x);
+}
+```
+> 這邊的表達式是一個能以 IntoIterator 轉成 疊代器（iterator）的東西。 疊代器會傳回一系列的元素。 每個元素是迴圈中的一次循環。 在這次迴圈的有效範圍內，元素的值會跟 var 綁定。 當迴圈結束，下一個值會從疊代器中取出，然後重複另一次。 當疊代器中沒有值了，for 迴圈就結束。  
+
+在我們的範例中，<code>0..10</code> 表達式會根據開始和結束的值，給予一個含有兩者之間數字的疊代器。 我們前面 (3-2.4 補充) 有介紹過，這邊再稍微講解一下，上限值不包含在其中，所以我們的迴圈會印出 0 到 9，沒有 10。  
+
+讓我們來運用 <code>for...in</code> 表達式來實現 Fizz Buzz，Fizz Buzz 是兒童的集體文字遊戲，可以教他們有關除法的知識。
+```
+fn main(){
+    for n in 1..16{
+        if n % 15 ==0{
+            println!("fizz buzz");
+    
+    } else if n % 3 == 0{
+        println!("fizz");
+    } else if n % 5 == 0{
+        println!("buzz");
+    } else {
+        println!("{}",n);
+    } 
+  }
+}
+```
+透過一個 fizzBuzz 函式，裡面代入參數 num：  
+* 會輸出從 1 ~ num 的數值  
+* 但若這個輸出的數值是 3 的倍數，則輸出 fizz  
+* 但若這個輸出的數值是 5 的倍數，則輸出 buzz  
+* 但若這個輸出的數值同時是 3 和 5 的倍數，則輸出 fizzBuzz    
+
+執行結果會依照我們所設的條件，列出預設範圍內符合條件的數字並將其轉換成條件所要的形式。  
+```
+% cargo run
+   Compiling test_for v0.1.0 (/Users/malik8811/sp108b/HOMEWORK/final/test_for)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.27s
+     Running `/Users/malik8811/sp108b/HOMEWORK/final/test_for/target/debug/test_for`
+1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizz buzz
+```  
+#### 3.while  
 
 > 持續學習中...持續學習中...持續學習中...持續學習中...持續學習中...
 
