@@ -587,8 +587,47 @@ fizz
 14
 fizz buzz
 ```  
-#### 3.while  
+#### 3.while 
+while 迴圈是一個條件迴圈。當程式需要評估條件時，則使用條件迴圈。 當條件為真時，它執行迴圈，否則它終止迴圈。介紹完 while 迴圈後，讓我們來試著使用 while 列出 1~10，程式碼如下：
+```
+fn main()  
+{  
+  let mut i=0;  
+  while i<10{  
+    i+=1; 
+   print!("{}", i);
+   print!(" ")
+}  
+}
+```
+執行結果
+```
+% cargo run
+   Compiling test_while v0.1.0 (/Users/malik8811/sp108b/HOMEWORK/final/test_while)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.19s
+     Running `/Users/malik8811/sp108b/HOMEWORK/final/test_while/target/debug/test_while`
+1 2 3 4 5 6 7 8 9 10
+``` 
+現在我試著使用 while 迴圈，來寫出 Fizz Buzz。
+```
+fn main() {
+    let mut n = 1;
 
+    while n < 1６ {
+        if n % 15 == 0 {
+            println!("fizzbuzz");
+        } else if n % 3 == 0 {
+            println!("fizz");
+        } else if n % 5 == 0 {
+            println!("buzz");
+        } else {
+            println!("{}", n);
+        }
+        n += 1;
+    }
+}
+```
+執行結果就會如同 <code>for</code> 迴圈所執行的結果。 
 > 持續學習中...持續學習中...持續學習中...持續學習中...持續學習中...
 
 
